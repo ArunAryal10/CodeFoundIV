@@ -1,10 +1,10 @@
 # Foundation IV projects repository
 
-This project aims to perform permutation testing using MaxT approach to control for family-wise errors(FWE).
+This project aims to perform permutation testing using MaxT approach (Nichols & Holmes, 2001) to control for family-wise errors(FWE).
 
 The dataset consists of 36 subject's task activation across 8 runs while performing NEXT behavioral task. 
-Task activations were estimated using regularized ridge regression. 
-Parcel-level functional connectivity was estimated using Graphical Lasso regression.
+Task activations were estimated using regularized ridge regression (https://github.com/alexhuth/ridge). 
+Parcel-level functional connectivity was estimated using Graphical Lasso regression (Peterson, 2023).
 
 A generative multi-step activity flow model was used to create trial-wise predicted activations using FPN as 
 task instruction encoding network and VIS1/VIS2 as GO probe encoding network.

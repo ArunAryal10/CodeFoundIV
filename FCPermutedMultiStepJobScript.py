@@ -1,3 +1,12 @@
+"""
+SLURM code to dynamically generate python scripts for each subjects.
+Utilizes functions from FCPermutedMultiStepActflow module. 
+Saves the permuted activation and non-permuted activations in a .H5 file. 
+
+"""
+
+
+
 import os
 
 # List of subjects

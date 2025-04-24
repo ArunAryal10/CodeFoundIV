@@ -1,19 +1,17 @@
 import os
 
-# # List of subjects
+# List of subjects
 subjNums = [ 'sub-3', 'sub-4', 'sub-5', 'sub-6', 'sub-7', 'sub-8', 'sub-10', 
          'sub-11', 'sub-12', 'sub-13', 'sub-14', 'sub-15', 'sub-16', 'sub-17', 'sub-18', 'sub-19', 'sub-20',
            'sub-21', 'sub-22', 'sub-23', 'sub-24', 'sub-25', 'sub-26', 'sub-28', 'sub-29', 'sub-30',
           'sub-31', 'sub-32', 'sub-33', 'sub-34', 'sub-35',  'sub-36', 'sub-37', 'sub-38', 'sub-39', 'sub-40'] 
-# subjNums = ['sub-37', 'sub-38', 'sub-39', 'sub-40']
-# subjNums = ['sub-10']
+
 # Constants and paths (update these paths according to your environment)
 output_dir='/projects/f_mc1689_1/MeiranNext/data/results/ArunResults/FCPermTestFoundIV/'
 
 pythonScriptDir="/projects/f_mc1689_1/MeiranNext/docs/scripts/ArunScripts/ActflowTesting/FoundIVRegionwiseTaskFCPermTest/generated_scripts"
 ActflowFunc_dir='/projects/f_mc1689_1/MeiranNext/docs/scripts/ArunScripts/ActflowTesting/FoundIVRegionwiseTaskFCPermTest/'
 
-# glasso_path = '/projects/f_mc1689_1/MeiranNext/docs/scripts/ArunScripts/ActflowTesting/MultiStepActflowRegionwiseTaskFC/task_fc_avg.npy'
 
 for subj in subjNums:
     output_subj_path = os.path.join(output_dir, subj)
@@ -25,6 +23,7 @@ for subj in subjNums:
     # Generate a per-subject Python script
     python_script_path = os.path.join(subj_dir, f"{subj}_actflow_script.py")
     with open(python_script_path, "w") as file_python:
+        
         # Import statements and environment setup
         file_python.write("import os\n")
         file_python.write("import sys\n")
@@ -44,21 +43,17 @@ for subj in subjNums:
         file_python.write("\n")
         # Add the directory containing MultiStepActflow.py to sys.path
         file_python.write(f"sys.path.append('{ActflowFunc_dir}')\n")
-        # file_python.write(f"sys.path.append('{glasso_path}')\n")
         file_python.write("\n")
         
         # Import necessary functions
-        # file_python.write("from NoTempMultiStepActflow1StepTrialInst import *\n") 
         file_python.write("from FCPermutedMultiStepActflow import *\n")
-        # file_python.write("from NoTempMultiStepActflow2Step import *\n")
-        # file_python.write("from MultiStepActflow import *\n")
         file_python.write("\n")
         
         # Set variables
         file_python.write(f"subj = '{subj}'\n")
-        # file_python.write(f"glasso_path = '{glasso_path}'\n")
         file_python.write(f"output_subj_path = '{output_subj_path}'\n")
         file_python.write("\n")
+        
         # Hard-code n_jobs
         file_python.write("n_jobs = 5  # Adjust as needed based on available CPUs\n")
         file_python.write("\n")
@@ -126,8 +121,8 @@ for subj in subjNums:
         file_slurm.write("#SBATCH --time=00:30:00\n")  # Adjust time as needed
         file_slurm.write("#SBATCH --nodes=1\n")
         file_slurm.write("#SBATCH --ntasks=1\n")
-        file_slurm.write("#SBATCH --cpus-per-task=10\n")  # Set to 45 CPUs as per your request
-        file_slurm.write("#SBATCH --mem=10000\n")          # Memory allocation (250 GB)
+        file_slurm.write("#SBATCH --cpus-per-task=10\n")  # Set CPUs as per your request
+        file_slurm.write("#SBATCH --mem=10000\n")          # Memory allocation 
         file_slurm.write(f"#SBATCH --output={subj_dir}/{subj}.out\n")
         file_slurm.write(f"#SBATCH --error={subj_dir}/{subj}.err\n")
         file_slurm.write("#SBATCH --export=ALL\n")

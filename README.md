@@ -1,6 +1,6 @@
 # Foundation IV project repository - Permutation testing using MaxT 
 
-This project aims to perform permutation testing using MaxT approach **(Nichols & Holmes, 2001)** to control for family-wise errors(FWE).
+This project aims to perform permutation testing using MaxT approach (https://doi.org/10.1002/hbm.1058) to control for family-wise errors(FWE).
 
 Hypothesis:
 The structure of functional connectivity (FC) and task activation carries information that enables above-chance decoding of somatomotor network (SMN) 

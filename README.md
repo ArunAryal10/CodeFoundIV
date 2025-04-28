@@ -3,7 +3,7 @@
 This project aims to perform permutation testing using MaxT approach (https://doi.org/10.1002/hbm.1058) to control for family-wise errors(FWE).
 
 **Hypothesis**:
-The structure of functional connectivity (FC) and task activation information that enables above-chance decoding of somatomotor network (SMN) 
+The structure of functional connectivity (FC) and task activation enables above-chance decoding of somatomotor network (SMN) 
 activity patterns during task performance. When FC and activation patterns are randomly shuffled, this information structure is disrupted, and 
 decoding performance drops to chance.
 

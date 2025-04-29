@@ -9,6 +9,8 @@ decoding performance drops to chance.
 
 **Dataset**: 
 The dataset consists of 36 subject's task activation across 8 runs while performing NEXT behavioral task. 
+<img width="783" alt="image" src="https://github.com/user-attachments/assets/a9e65554-3227-4a18-b7ec-7d852fea0936" />
+
 
 **Method**:
 1. Task activations were estimated using regularized ridge regression (https://github.com/alexhuth/ridge). 

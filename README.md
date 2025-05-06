@@ -21,6 +21,8 @@ task instruction encoding network and VIS1/VIS2 as GO probe encoding network.
 <img width="535" alt="image" src="https://github.com/user-attachments/assets/bd9c6f7f-b97d-4c37-a033-419cdfd7f4d3" />
 
 5. Two way networkwise button press decoding was performed on actual betas to estimate the ground truth.
+<img width="1004" alt="image" src="https://github.com/user-attachments/assets/9d97fddd-d6e1-4863-b190-3f157f925aa7" />
+
 6. Two way networkwise button press decoding was performed on predicted betas and was tested for significance. 
 7. FC was shuffled (1000 permutations) and max t-stat null distribution of accuracy was estimated. 
 8. Trial-wise activation was shuffled (1000 permutations) and max t-stat null distribution of accuracy was estimated. 

@@ -22,6 +22,7 @@ task instruction encoding network and VIS1/VIS2 as GO probe encoding network.
 
 5. Two way networkwise button press decoding was performed using cross-validated pearson correlation-based minimum distance
 classifier on actual betas to estimate the ground truth.
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/b6be8ad4-7831-4d50-8ae0-02e1ee2b2825" />
 
 7. Two way networkwise button press decoding was performed on predicted betas and was tested for significance.
 <img width="1004" alt="image" src="https://github.com/user-attachments/assets/9d97fddd-d6e1-4863-b190-3f157f925aa7" />

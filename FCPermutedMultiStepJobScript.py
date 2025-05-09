@@ -95,7 +95,8 @@ for subj in subjNums:
         file_python.write("    # Run permutations\n")
         file_python.write("    for i in range(nIters):\n")
         file_python.write("        # Create FC matrix and get all relevant beta matrices and responses\n")
-        file_python.write("        FC_matrix = loadFC(subj)\n")
+        file_python.write("        rng = np.random.default_rng(seed=i)\n")   # different for each perm
+        file_python.write("        FC_matrix = loadFC(subj, rng=rng)\n")
         file_python.write("        predicted_betas = cross_validated_actflow_per_trial_50_50(\n")
         file_python.write("        n_jobs=n_jobs,\n")
         file_python.write("        allBetas_filt=allBetas_filt,\n")

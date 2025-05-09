@@ -182,25 +182,26 @@ def load_and_print_pickle(file_path):
         return data
 
 
-def loadFC(subj):
+def loadFC(subj, kind="edge", rng=None):
     """
-    Load and shuffle FC matrix for a subject.
-
-    Parameters
-    ----------
-    subj : str
-        Subject ID.
-
-    Returns
-    -------
-    shuffledFC : ndarray
-        Shuffled functional connectivity matrix.
+    kind='rowcol' — random permutation of node labels (preserves symmetry &
+    degree distribution).
+    kind='edges'  — shuffle only upper‑triangle weights, then mirror.
     """
-    glasso_path = os.path.join(glasso_dir, subj + glasso_suffix)
-    glassoFC = np.load(glasso_path)
-    shuffledFC = glassoFC.copy().flatten()
-    np.random.shuffle(shuffledFC)
-    return shuffledFC.reshape(glassoFC.shape)
+    rng = np.random.default_rng(rng)
+    fc = np.load(os.path.join(glasso_dir, subj + glasso_suffix))
+
+    if kind == "rowcol":           # node‑label permutation
+        perm = rng.permutation(fc.shape[0])
+        fc = fc[perm][:, perm]
+    else:                          # edge‑weight shuffle
+        iu = np.triu_indices_from(fc, k=1)
+        vals = fc[iu].copy()
+        rng.shuffle(vals)
+        fc[iu] = vals
+        fc[(iu[1], iu[0])] = vals   # mirror
+    np.fill_diagonal(fc, 0)
+    return fc.astype(np.float32)
 
 
 def loadActualFC(subj):
